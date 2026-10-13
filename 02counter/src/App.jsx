@@ -10,8 +10,22 @@ function App() {
   let [counter , setCounter] = useState(15)
 
   const AddValue = () => {
+
+    // yeh sare calls ek bunch mei jate hai hence ek hi baar UT update hota hai
+    // hence counter = 15 + 1 = 16
+    // setCounter(counter + 1)
+    // setCounter(counter + 1)
+    // setCounter(counter + 1)
+    // setCounter(counter + 1)
+
+    // what if someone wants to update like this like 4 times in a row
+    setCounter((prevCounter) => prevCounter + 1)
+    setCounter((prevCounter) => prevCounter + 1)
+    setCounter((prevCounter) => prevCounter + 1)
+    setCounter((prevCounter) => prevCounter + 1)
+
     // counter = counter + 1 
-    if(counter < 25) setCounter(counter + 1)
+    // if(counter < 25) setCounter(counter + 1)
     // console.log("Add Value Clicked",counter)
     // UI updation ko react control karta hai
   }
