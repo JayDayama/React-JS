@@ -6,6 +6,7 @@ import {Link} from 'react-router-dom'
 
 // for the option when we click the post it expands in app
 function PostCard({$id, title, featuredImage}) {
+    // console.log("Post Title:", title, "Image ID:", featuredImage);
   return (
     <Link to={`/post/${$id}`}>
         <div className='w-full bg-gray-100 rounded-xl p-4'>
@@ -14,6 +15,7 @@ function PostCard({$id, title, featuredImage}) {
                 {featuredImage ? (
                     <img 
                         src={appwriteService.getFilePreview(featuredImage)} 
+                        // src={appwriteService.getFileView(featuredImage)} 
                         alt={title} 
                         className='rounded-xl'
                     />

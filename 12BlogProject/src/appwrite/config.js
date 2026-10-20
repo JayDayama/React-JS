@@ -70,10 +70,7 @@ export class Service{
             await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,
-                {
-
-                }
+                slug
             )
             return true
         } catch (error) {
@@ -147,12 +144,20 @@ export class Service{
 
     // file preview -> very faqst response no async required
     // -> returns kind of a url like where was the thing (of the given id)
+    // file preview -> very fast response no async required
     getFilePreview(fileId){
-        return this.bucket.getFilePreview(
+        // CHANGE: this.bucket.getFilePreview -> this.bucket.getFileView
+        return this.bucket.getFileView(
             conf.appwriteBucketId,
             fileId
         )
     }
+    // getFilePreview(fileId){
+    //     return this.bucket.getFilePreview(
+    //         conf.appwriteBucketId,
+    //         fileId
+    //     )
+    // }
 }
 
 const service = new Service()
